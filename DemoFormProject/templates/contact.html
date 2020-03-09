@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<style>
+    body {
+        animation: 10000ms ease-in-out infinite color-change;
+    }
+
+    @keyframes color-change {
+        0% {
+            background-color: cyan;
+        }
+
+        20% {
+            background-color: yellow;
+        }
+
+        40% {
+            background-color: palevioletred;
+        }
+
+        60% {
+            background-color: palevioletred;
+        }
+
+        80% {
+            background-color: limegreen;
+        }
+
+        100% {
+            background-color: cyan;
+        }
+    }
+</style>
+
+<h2>{{ title }}</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for message in messages %}
+<h3>{{ message[1] }}</h3>
+<br />
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<br />
+<br />
+<br />
+
+<form method=post>
+    {{ form.csrf }}
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>
+                {{ form.FirstName.label }}
+            </td>
+            <td>
+                {{ form.FirstName }}
+            </td>
+            <td>
+                {% if form.FirstName.errors %}
+                <ul class="text-danger">{% for error in form.FirstName.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.LastName.label }}
+            </td>
+            <td>
+                {{ form.LastName }}
+            </td>
+            <td>
+                {% if form.LastName.errors %}
+                <ul class="text-danger">{% for error in form.LastName.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.PhoneNumber.label }}
+            </td>
+            <td>
+                {{ form.PhoneNumber }}
+            </td>
+            <td>
+                {% if form.PhoneNumber.errors %}
+                <ul class="text-danger">{% for error in form.PhoneNumber.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.EMail.label }}
+            </td>
+            <td>
+                {{ form.EMail }}
+            </td>
+            <td>
+                {% if form.EMail.errors %}
+                <ul class="text-danger">{% for error in form.EMail.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.Message.label }}
+            </td>
+            <td>
+                {{ form.Message }}
+            </td>
+            <td>
+                {% if form.Message.errors %}
+                <ul class="text-danger">{% for error in form.Message.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div class="input submit">
+                    <input type="submit" value="Contact">
+                </div>
+            <td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+<style>
+    td, tr, table {
+        font-size: 22px
+    }
+
+    h2 {
+        position: relative;
+        left: 450px;
+    }
+</style>
+
+<h4>for contacting me:</h4>
+<h4>phone number - 0523915204</h4>
+<h4>E-mail - nadav.fryd@gmail.com</h4>
+
+
+
+    {% endblock %}

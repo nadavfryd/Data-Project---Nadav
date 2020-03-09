@@ -1,0 +1,105 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+    <div dir="ltr">
+        <div class="Jumbotron">
+            <h1>Unemployment around the world</h1>
+            <p>The Data Base shows unemployment rate around the world</p>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th> field name </th>
+                    <th> explanation </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Country Name</td>
+                    <td> The name of the country </td>
+                </tr>
+
+                <tr>
+                    <td> Country Code</td>
+                    <td> The shortening of the contry's name </td>
+
+                </tr>
+                <tr>
+                    <td> 2010</td>
+                    <td> The year of measurement</td>
+                </tr>
+                <tr>
+                    <td> 2011</td>
+                    <td> The year of measurement</td>
+                </tr>
+                <tr>
+                    <td> 2012</td>
+                    <td> The year of measurement</td>
+                </tr>
+                <tr>
+                    <td> 2013</td>
+                    <td> The year of measurement</td>
+                </tr>
+                <tr>
+                    <td> 2014</td>
+                    <td> The year of measurement</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .collapsible {
+            background-color: lime;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+            .active, .collapsible:hover {
+                background-color: limegreen;
+            }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<button type="button" class="collapsible">DataBase</button>
+<div class="content">
+    <p> {{ data | safe}}</p>
+</div>
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+{% endblock %}
